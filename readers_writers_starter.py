@@ -104,8 +104,8 @@ class ReadersWritersMonitor:
         3. Wake waiting threads.
         """
         with self.condition:
-            # TODO: Replace 'pass' with your logic
-            pass
+            self.active_writers -= 1
+            print(f"Writer {writer_id} stops writing. Active writers = {self.active_writers}")
 
 # Donot Change this
 class Reader(threading.Thread):
