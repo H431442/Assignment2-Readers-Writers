@@ -190,6 +190,7 @@ def main() -> None:
         thread.join()
 
     # TODO: Print final message that simulation completed
+    print("=== Readers-Writers Simulation Completed Successfully ===")
 
 
 if __name__ == "__main__":
