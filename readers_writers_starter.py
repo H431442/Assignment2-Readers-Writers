@@ -107,7 +107,8 @@ class ReadersWritersMonitor:
             self.active_writers -= 1
             print(f"Writer {writer_id} stops writing. Active writers = {self.active_writers}")
             self.condition.notify_all()
-# Donot Change this
+
+# Do not Change this
 class Reader(threading.Thread):
     def __init__(self, reader_id: int, monitor: ReadersWritersMonitor, rounds: int = 3) -> None:
         super().__init__()
@@ -128,7 +129,7 @@ class Reader(threading.Thread):
             self.monitor.end_read(self.reader_id)
             print(f"Reader {self.reader_id} finished reading")
 
-# Donot Change this
+# Do not Change this
 class Writer(threading.Thread):
     def __init__(self, writer_id: int, monitor: ReadersWritersMonitor, rounds: int = 2) -> None:
         super().__init__()
@@ -166,7 +167,9 @@ def main() -> None:
 
     #TODO: Create at least 3 Reader threads.
     readers = [
-        Reader(reader_id=1, monitor=monitor)
+        Reader(reader_id=1, monitor=monitor),
+        Reader(reader_id=2, monitor=monitor),
+        Reader(reader_id=3, monitor=monitor)
     ]
     
     #TODO: Create at least 2 writer threads.
