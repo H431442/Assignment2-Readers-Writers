@@ -91,7 +91,9 @@ class ReadersWritersMonitor:
         """
         with self.condition:
             self.waiting_writers += 1
-
+            while self.active_readers > 0 or self.active_writers > 0:
+                print(f"Writer {writer_id} is waiting to write (active readers: {self.active_readers}, active writers: {self.active_writers})")
+                self.condition.wait()
     def end_write(self, writer_id: int) -> None:
         """
         Called after a writer finishes writing.
