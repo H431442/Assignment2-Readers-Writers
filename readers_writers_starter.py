@@ -181,7 +181,9 @@ def main() -> None:
     all_threads = readers + writers
     
     # TODO: Start all threads
-
+    print("=== Starting Readers-Writers Simulation ===")
+    for thread in all_threads:
+        thread.start()
     
     # TODO: Wait for all threads to finish
 
