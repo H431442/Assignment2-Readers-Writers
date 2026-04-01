@@ -106,7 +106,7 @@ class ReadersWritersMonitor:
         with self.condition:
             self.active_writers -= 1
             print(f"Writer {writer_id} stops writing. Active writers = {self.active_writers}")
-
+            self.condition.notify_all()
 # Donot Change this
 class Reader(threading.Thread):
     def __init__(self, reader_id: int, monitor: ReadersWritersMonitor, rounds: int = 3) -> None:
