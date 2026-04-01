@@ -72,8 +72,9 @@ class ReadersWritersMonitor:
         3. If this was the last reader, wake waiting threads.
         """
         with self.condition:
-            # TODO: Replace 'pass' with your logic
-            pass
+            self.active_readers -= 1
+            print(f"Reader {reader_id} stops reading.Active readers={self.active_readers}")
+
 
     def start_write(self, writer_id: int) -> None:
         """
