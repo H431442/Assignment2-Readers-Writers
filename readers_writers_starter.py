@@ -90,8 +90,7 @@ class ReadersWritersMonitor:
         4. Print a useful log message.
         """
         with self.condition:
-            # TODO: Replace 'pass' with your logic
-            pass
+            self.waiting_writers += 1
 
     def end_write(self, writer_id: int) -> None:
         """
